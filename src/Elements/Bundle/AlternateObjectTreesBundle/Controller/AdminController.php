@@ -22,6 +22,7 @@ use Elements\Bundle\AlternateObjectTreesBundle\Model\Config\Listing;
 use Elements\Bundle\AlternateObjectTreesBundle\Service;
 use Pimcore\Bundle\AdminBundle\Controller\Admin\DataObject\DataObjectHelperController;
 use Pimcore\Bundle\AdminBundle\Helper\GridHelperService;
+use Pimcore\Config;
 use Pimcore\Db;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\ClassDefinition;
@@ -644,10 +645,11 @@ class AdminController extends DataObjectHelperController
      * @Route("/grid-get-column-config", methods={"GET"})
      *
      * @param Request $request
+     * @param Config $config
      *
      * @return JsonResponse
      */
-    public function gridGetColumnConfigAction(Request $request)
+    public function gridGetColumnConfigAction(Request $request, Config $config)
     {
         $isDelete = false;
         $tree = null;
